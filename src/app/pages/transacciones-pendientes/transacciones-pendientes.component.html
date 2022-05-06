@@ -1,0 +1,14 @@
+<div class="container">
+
+	<h1>Registros pendeintes</h1>
+	<p>Aquí se muestran los registros creados esperando a ser validados en un bloque. Faltan n registros para validar el bloque.</p>
+
+	<app-tabla-transacciones
+		[transacciones]="transaccionesPendientes">
+	</app-tabla-transacciones>
+
+	 <button class="btn btn-primary" *ngIf="transaccionesPendientes.length > 0" (click)="minarTransaccionesPendientes()">
+     	Minar transacciones
+    </button>
+
+</div>

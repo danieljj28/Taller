@@ -1,0 +1,42 @@
+<div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Bloque <small class="text-muted" *ngIf="block.hashBloqueAnterior == 0">(Bloque Genesis)</small></h5>
+    </div>
+
+     <ul class="list-group list-group-flush">
+	    <li class="list-group-item">
+	    	<span class="">Hash</span>
+	    	<br>
+	    	<div class="text-truncate" [style.color]="'#' + block.hash.substring(0,6)">
+	    		<small>{{ block.hash }}</small>
+	    	</div>
+
+			<br>
+			<span class="">Hash del bloque anterior</span>
+	    	<br>
+
+	    	<div class="text-truncate" [style.color]="'#' + block.hashBloqueAnterior.substring(0,6)">
+	    		<small>{{ block.hashBloqueAnterior }}</small>
+	    	</div>
+	    </li>
+
+	    <li class="list-group-item">
+	    	<span class="">Numero Para Validacion</span><br>
+	    	<div class="text-truncate text-muted">
+	    		<small>{{ block.numeroParaValidacion }}</small>
+	    	</div>
+	    </li>
+
+	    <li class="list-group-item">
+	    	<span class="">Fecha</span><br>
+	    	<div class="text-truncate text-muted">
+	    		<small>{{ block.fecha }}</small>
+	    	</div>
+	    </li>
+	  </ul>
+
+	  <!-- <div class="card-body"> -->
+	  	<!-- <span class="card-link" *ngIf="!blockHasTx()">Block has no transactions</span> -->
+	  	<!-- <span class="card-link" *ngIf="blockHasTx()">Contains {{block.transactions.length}} transactions</span> -->
+	  <!-- </div> -->
+  </div>

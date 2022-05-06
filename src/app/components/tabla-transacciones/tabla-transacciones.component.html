@@ -1,0 +1,38 @@
+<p *ngIf="transacciones.length === 0">Este bloque no tiene transacciones</p>
+
+<table class="table table-hover table-striped" *ngIf="transacciones.length > 0">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Vehiculo</th>
+        <th scope="col">Taller</th>
+        <th scope="col">Tipo Reparacion</th>
+        <th scope="col">Detalles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let tx of transacciones; index as index">
+        <td>{{index}}</td>
+        <td class="text-truncate" style="max-width: 100px;">
+  
+          {{tx.vehiculo}}
+          
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+  
+            {{tx.taller}}
+            
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+  
+            {{tx.tipoConsulta}}
+            
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+  
+            {{tx.detalles}}
+            
+        </td>
+      </tr>
+    </tbody>
+  </table>
