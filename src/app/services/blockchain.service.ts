@@ -9,7 +9,7 @@ export class BlockchainService {
   public instanciaBlockchain = new BlockchainVehiculos();
 
   constructor() { 
-    this.instanciaBlockchain.minarTransaccionesPendientes();
+    //this.instanciaBlockchain.minarTransaccionesPendientes();
   }
 
   obtenerBloques(){
@@ -22,6 +22,10 @@ export class BlockchainService {
 
   obtenerTransaccionesPendientes(){
     return this.instanciaBlockchain.transaccionesPendientes;
+  }
+
+  obtenerTransaccionesVehiculo(matricula:any){
+    return this.instanciaBlockchain.buscarMatricula(matricula);
   }
 
   minarTransaccionesPendientes(){

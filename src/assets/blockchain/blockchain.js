@@ -52,7 +52,9 @@ export class BlockchainVehiculos {
   }
 
   minarTransaccionesPendientes(){
-    let bloque = new Bloque(Date.now(), this.transaccionesPendientes, this.obtenerUltimoBloque().hash);
+    const timeElapsed = Date.now();
+    const today = new Date(timeElapsed);
+    let bloque = new Bloque(today.toLocaleDateString() + " " + today.toLocaleTimeString(), this.transaccionesPendientes, this.obtenerUltimoBloque().hash);
     bloque.minarBloque();
 
     console.log('Bloque minado satisfactoriamente!');
@@ -77,6 +79,26 @@ export class BlockchainVehiculos {
     }
     return true;
   }
+
+  buscarMatricula(matricula)
+  {
+    let transaccionescoche = [];
+    for (let i = 1; i < this.blockchain.length; i++) {
+      const bloqueActual = this.blockchain[i];
+      const trans = bloqueActual.transacciones;
+      for(let j = 0; j < trans.length; j++) {
+        if(trans[j].vehiculo == matricula) {
+          const mat = trans[j];
+          mat.fecha = bloqueActual.fecha;
+          mat.hashBloque = bloqueActual.hash;
+          console.log(mat);
+          transaccionescoche.push(trans[j]);
+        }
+      }
+    }
+    return transaccionescoche;
+  }
+  
 }
 
 /*

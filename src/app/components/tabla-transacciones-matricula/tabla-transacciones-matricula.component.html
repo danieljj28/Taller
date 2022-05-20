@@ -6,20 +6,16 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Vehiculo</th>
         <th scope="col">Taller</th>
         <th scope="col">Tipo Reparacion</th>
         <th scope="col">Detalles</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Hash bloque</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let tx of transacciones; index as index">
         <td>{{index}}</td>
-        <td class="text-truncate" style="max-width: 100px;">
-  
-          {{tx.vehiculo}}
-          
-        </td>
         <td class="text-truncate" style="max-width: 100px;">
   
             {{tx.taller}}
@@ -33,6 +29,16 @@
         <td class="text-truncate" style="max-width: 100px;">
   
             {{tx.detalles}}
+            
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+  
+            {{tx.fecha}}
+            
+        </td>
+        <td class="text-truncate" style="max-width: 100px;">
+  
+            {{tx.hashBloque}}
             
         </td>
       </tr>

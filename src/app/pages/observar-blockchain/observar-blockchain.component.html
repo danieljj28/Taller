@@ -1,22 +1,38 @@
 <div class="container">
-	<h1>Bloques de la cadena</h1>
-	<p>Cada tarjeta representa un bloque. Clique en un bloque para ver las transacciones almacenadas.</p>
+	
 </div>
+<style>
+	#columnas{
+		column-count: 2;
+		column-gap:10px;
+	}
+</style>
+<div id="columnas">	
+			<div style="margin: 25px;">
+				
+				<h1>Bloques de la cadena</h1>
+				<p>Cada tarjeta representa un bloque. Clique en un bloque para ver las transacciones almacenadas.</p>
+				<app-ver-bloque
+					*ngFor="let block of bloques" 
+					[block]="block" 
+					(click)="verTransacciones(block)"
+				></app-ver-bloque>
+	
+			</div>
 
-<div class="container" style="overflow-x: scroll;white-space: nowrap;">
-	<app-ver-bloque
-		*ngFor="let block of bloques" 
-		[block]="block" 
-		(click)="verTransacciones(block)"
-	></app-ver-bloque>
+			<div>
+				<br>
+				<h1>Transacciones del bloque</h1>
+				<app-tabla-transacciones
+					[transacciones]="bloqueSeleccionado.transacciones"
+				></app-tabla-transacciones>
+					
+			</div>		
 </div>
+	
 
-<br><br>
 
-<div class="container">
-	<h1>Transacciones dentro del bloque</h1>
 
-	<app-tabla-transacciones
-		[transacciones]="bloqueSeleccionado.transacciones"
-	></app-tabla-transacciones>
-</div>
+
+
+
