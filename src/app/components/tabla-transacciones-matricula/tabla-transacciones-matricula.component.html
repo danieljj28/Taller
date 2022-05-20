@@ -2,7 +2,7 @@
 
 <p *ngIf="transacciones.length === 0">Este bloque no tiene transacciones</p>
 
-<table class="table table-hover table-striped" *ngIf="transacciones.length > 0 && transacciones !== 'Bloque Inicial de la Blockchain, necesario insertarlo manualmente.'">
+<table id="htmlData" class="table table-hover table-striped" *ngIf="transacciones.length > 0 && transacciones !== 'Bloque Inicial de la Blockchain, necesario insertarlo manualmente.'">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -49,4 +49,43 @@
         </td>
       </tr>
     </tbody>
+
+    <button class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Download PDF</button>
+
+    <!--Formato HTML-->
+
+
+    <div *ngIf='showDiv()' class="container">
+      <div class="row">
+        <div *ngFor="let tx of transacciones; index as index">
+          <h2>Lista de Transacciones</h2>
+          <p>
+            <label># :</label>
+            <span>{{index}}</span> 
+          </p>
+          <p>
+            <label>Taller :</label>
+            <span>{{tx.taller}}</span> 
+          </p>
+          <p>
+            <label>Tipo Reparacion :</label>
+            <span>{{tx.tipoConsulta}}</span> 
+          </p>
+          <p>
+            <label>Detalles :</label>
+            <span>{{tx.detalles}}</span> 
+          </p>
+          <p>
+            <label>Fecha :</label>
+            <span>{{tx.fecha}}</span> 
+          </p>
+          <p>
+            <label>Hash Bloque :</label>
+            <span>{{tx.hashBloque}}</span> 
+          </p>
+        </div>
+      </div>
+    </div>
+    
+
   </table>
