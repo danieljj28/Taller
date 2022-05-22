@@ -6,6 +6,7 @@ export class Transaccion {
         this.taller = taller;
         this.tipoConsulta = tipoConsulta;
         this.detalles = detalles;
+        this.marca = marca;
     }
 }
 
@@ -98,7 +99,7 @@ export class BlockchainVehiculos {
     }
     return transaccionescoche;
   }
-  
+
 }
 
 /*

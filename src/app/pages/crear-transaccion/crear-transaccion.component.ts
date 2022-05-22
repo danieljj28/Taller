@@ -20,19 +20,20 @@ export class CrearTransaccionComponent implements OnInit {
   opcionSeleccionado: string  = '0';
   dato = "si";
   clave = localStorage.getItem("clavePrimaria")+"";
-  
 
-  
+
+   lista : any[]=["audi","opel","seat", "bmw"];
+
   g:Globales=new Globales;
 
   constructor(private blockchainService:BlockchainService,private router: Router) {
-    
+
    }
-  
- 
-  
+
+
+
   public logeadoOno(){
-    
+
     if(this.dato!=localStorage.getItem("loggeado"))
     {
       this.redirectUser();
@@ -41,20 +42,20 @@ export class CrearTransaccionComponent implements OnInit {
       return;
     }
   };
-  
+
 
   ngOnInit(): void {
     this.logeadoOno();
     (<HTMLInputElement>document.getElementById("toAddress")).placeholder = this.clave;
     (<HTMLInputElement>document.getElementById("toAddress")).value = this.clave;
     this.nuevaTransaccion = new Transaccion();
-    
+
   }
   private redirectUser():void {
     this.router.navigate(['/login']);
   }
-  
-  crearTransaccion(){ 
+
+  crearTransaccion(){
     const nuevaTransaccion = this.nuevaTransaccion;
     this.nuevaTransaccion.taller = this.clave;
     if(nuevaTransaccion.vehiculo != "" && nuevaTransaccion.detalles != "" && nuevaTransaccion.tipoConsulta != "")
@@ -64,11 +65,11 @@ export class CrearTransaccionComponent implements OnInit {
     }
     else
     {
-      
+
       alert("No se ha agregado la transaccion porque no puede estar ningun campo vacio");
     }
   }
-  
-  
+
+
 }
 

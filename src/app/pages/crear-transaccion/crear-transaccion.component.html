@@ -11,14 +11,14 @@
 
     <title>MotorBlock</title>
 
-   
+
 
     <!-- Custom styles for this template-->
     <link href="/MotorBlockchain/src/app/pages/crear-transaccion/sb-admin-2.css" rel="stylesheet">
 
     <link href="/MotorBlockchain/src/app/pages/crear-transaccion/sb-admin-2.min.css" rel="stylesheet">
-    
-    
+
+
 </head>
 <app-navbar></app-navbar>
 <body id="page-top">
@@ -27,7 +27,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-      
+
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -37,42 +37,42 @@
             <div id="content">
 
 <!------------------------------------------------------------------NAVBAR-------------------------------------------------------------------------------------- -->
-                
+
 <!--------------------------------------------------------------CONTENIDO--------------------------------------------------------------------------------------------->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    
-                    
+
+
                     <div>
                         <div class="container">
                             <h1 style="margin-top: 20px;">Crear registro</h1>
                             <p style="margin-top: 20px;">Registrar informacion sobre un vehiculo</p>
-                        
+
                             <br>
-                        
+
                             <div class="form-group">
                                 <label for="fromAddress">Vehiculo</label>
                                 <input type="text" class="form-control" id="ifromAddress" pattern="[A-Za-z]{3}[1-9]{4}" aria-describedby="fromAddressHelp" [(ngModel)]="nuevaTransaccion.vehiculo" required>
                                 <small id="fromAddressHelp" class="form-text text-muted">
                                     Matricula del vehiculo.
                                 </small>
-                                
+
                               </div>
-                        
+
                               <div  class="form-group">
                                 <label for="toAddress">Taller</label>
                                 <input type="text" class="form-control" id="toAddress" aria-describedby="toAddressHelp" placeholder="" [(ngModel)]="nuevaTransaccion.taller" disabled>
                                 <small id="toAddressHelp" class="form-text text-muted">
-                                    Waller del taller que valida el registro. Al tener que iniciar sesion con su cuenta no se puede cambiar. 
+                                    Waller del taller que valida el registro. Al tener que iniciar sesion con su cuenta no se puede cambiar.
                                 </small>
                               </div>
-                        
+
                               <div class="form-group">
                                 <label for="amount">Tipo Consulta</label><br>
                                 <select style="width: 400px;height:40px" id="opciones" [(ngModel)]="nuevaTransaccion.tipoConsulta"  required>
-                                    <option value="Motor">Motor</option>  
+                                    <option value="Motor">Motor</option>
                                     <option value="Aceite">Aceite</option>
                                     <option value="Carburante">Carburante</option>
                                     <option value="Asientos">Asientos</option>
@@ -82,9 +82,9 @@
                                 <small id="amountHelp" class="form-text text-muted">
                                     Tipo de consulta del vehiculo.
                                 </small>
-                                
+
                               </div>
-                        
+
                             <div class="form-group">
                                 <label for="amount">Detalles</label>
                                 <input type="text" class="form-control" id="amount" aria-describedby="amountHelp" [(ngModel)]="nuevaTransaccion.detalles" required>
@@ -92,24 +92,36 @@
                                     Breve descripcion de la consulta.
                                 </small>
                               </div>
-                        
+
+                              <div class="form-group">
+                                <label for="amount">Marca</label><br>
+                                <select style="width: 400px;height:40px" id="opciones" [(ngModel)]="nuevaTransaccion.marca"  required>
+                                  <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+                                </select>
+                                <!--<input type="text" class="form-control" id="amount" aria-describedby="amountHelp" [(ngModel)]="nuevaTransaccion.tipoConsulta">-->
+                                <small id="amountHelp" class="form-text text-muted">
+                                    Tipo de consulta del vehiculo.
+                                </small>
+
+                              </div>
+
                               <br>
                               <style>
                                   .btn-a
                                   {
                                     background-color: black;
                                     color:aliceblue;
-                                    
+
                                   }
-                                  
+
                               </style>
                               <div class="b">
                                 <button (click)="crearTransaccion()" type="submit"  class="btn-a" >Crear registro del vehiculo</button>
-                                
+
                               </div>
                         </div>
-                    </div>                          
-                </div>             
+                    </div>
+                </div>
             </div>
         </div>
     </div>
