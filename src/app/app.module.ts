@@ -11,6 +11,10 @@ import { TransaccionesPendientesComponent } from './pages/transacciones-pendient
 import { SearchMatriculaComponent } from './pages/search-matricula/search-matricula.component';
 import { TablaMatriculaComponent } from './components/tabla-matricula/tabla-matricula.component';
 import { TablaTransaccionesMatriculaComponent } from './components/tabla-transacciones-matricula/tabla-transacciones-matricula.component';
+import { LoginComponent } from './login/login.component';
+import { RouterModule } from '@angular/router';
+import { NavbarComponent } from './navbar/navbar.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +26,16 @@ import { TablaTransaccionesMatriculaComponent } from './components/tabla-transac
     TransaccionesPendientesComponent,
     SearchMatriculaComponent,
     TablaMatriculaComponent,
-    TablaTransaccionesMatriculaComponent
+    TablaTransaccionesMatriculaComponent,
+    LoginComponent,
+    NavbarComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
