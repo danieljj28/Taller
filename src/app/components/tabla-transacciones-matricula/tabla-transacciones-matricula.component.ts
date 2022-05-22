@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-tabla-transacciones-matricula',
@@ -9,12 +10,13 @@ import html2canvas from 'html2canvas';
 })
 export class TablaTransaccionesMatriculaComponent implements OnInit {
   @Input() public transacciones:any;
-  
+
   constructor() {
   }
 
   public downloadPDF(): void {
     const DATA: any = document.getElementById('htmlData');
+    DATA.style.display = "block";
     const doc = new jsPDF('p', 'pt', 'a4');
 
     const options = {
@@ -37,15 +39,9 @@ export class TablaTransaccionesMatriculaComponent implements OnInit {
     }).then((docResult) => {
       docResult.save(`${new Date().toISOString()}_tutorial.pdf`);
     });
-  }
 
-  public showDiv(): void {
-    const name = document.getElementById('htmlData')
-    // Forzamos la variable a boolean
-    // Si name existe y no es un string vacío, entonces devuelve true
-    name?.hidden;
+    DATA.style.display = "none";
   }
-
   ngOnInit(): void {
   }
 

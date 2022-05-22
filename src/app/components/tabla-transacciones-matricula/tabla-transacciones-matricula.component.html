@@ -2,7 +2,7 @@
 
 <p *ngIf="transacciones.length === 0">Este bloque no tiene transacciones</p>
 
-<table id="htmlData" class="table table-hover table-striped" *ngIf="transacciones.length > 0 && transacciones !== 'Bloque Inicial de la Blockchain, necesario insertarlo manualmente.'">
+<table class="table table-hover table-striped" *ngIf="transacciones.length > 0 && transacciones !== 'Bloque Inicial de la Blockchain, necesario insertarlo manualmente.'">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -11,42 +11,45 @@
         <th scope="col">Detalles</th>
         <th scope="col">Fecha</th>
         <th scope="col">Hash bloque</th>
+        <th scope="col">Marca</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let tx of transacciones; index as index">
         <td>{{index}}</td>
         <td class="text-truncate" style="max-width: 50px;">
-  
+
             {{tx.taller}}
-            
+
         </td>
         <td class="text-truncate" style="max-width: 50px;">
-  
+
             {{tx.tipoConsulta}}
-            
+
         </td>
         <td class="text-truncate" style="max-width: 50px;">
-  
+
             {{tx.detalles}}
-            
+
         </td>
         <td class="text-truncate" style="max-width: 50px;">
-  
+
             {{tx.fecha}}
-            
+
         </td>
         <td class="text-truncate" style="max-width: 50px;">
-  
+
             {{tx.hashBloque}}
-            
-        </td>
-
-        <td class="text-truncate" style="max-width: 70px;">
-             
-          <button class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Download PDF</button>
 
         </td>
+
+        <td class="text-truncate" style="max-width: 50px;">
+
+          {{tx.marca}}
+
+        </td>
+
+
       </tr>
     </tbody>
 
@@ -55,37 +58,41 @@
     <!--Formato HTML-->
 
 
-    <div *ngIf='showDiv()' class="container">
+    <div  class="container">
       <div class="row">
-        <div *ngFor="let tx of transacciones; index as index">
+        <div style="display: none;" id="htmlData" *ngFor="let tx of transacciones; index as index">
           <h2>Lista de Transacciones</h2>
           <p>
             <label># :</label>
-            <span>{{index}}</span> 
+            <span>{{index}}</span>
           </p>
           <p>
             <label>Taller :</label>
-            <span>{{tx.taller}}</span> 
+            <span>{{tx.taller}}</span>
           </p>
           <p>
             <label>Tipo Reparacion :</label>
-            <span>{{tx.tipoConsulta}}</span> 
+            <span>{{tx.tipoConsulta}}</span>
           </p>
           <p>
             <label>Detalles :</label>
-            <span>{{tx.detalles}}</span> 
+            <span>{{tx.detalles}}</span>
           </p>
           <p>
             <label>Fecha :</label>
-            <span>{{tx.fecha}}</span> 
+            <span>{{tx.fecha}}</span>
           </p>
           <p>
             <label>Hash Bloque :</label>
-            <span>{{tx.hashBloque}}</span> 
+            <span>{{tx.hashBloque}}</span>
+          </p>
+          <p>
+            <label>Marca :</label>
+            <span>{{tx.marca}}</span>
           </p>
         </div>
       </div>
     </div>
-    
+
 
   </table>

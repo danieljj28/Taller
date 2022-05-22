@@ -9,6 +9,8 @@ import { Transaccion } from 'src/assets/blockchain/blockchain';
 })
 export class CrearTransaccionComponent implements OnInit {
 
+  lista : String[] = ["OPEL", "MERCEDES", "BMW", "AUDI", "SEAT", "PEUGOT"];
+
   public nuevaTransaccion:any;
 
   constructor(private blockchainService:BlockchainService) { }

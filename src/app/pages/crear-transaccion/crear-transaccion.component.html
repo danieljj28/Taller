@@ -11,13 +11,13 @@
 
     <title>MotorBlock</title>
 
-   
+
 
     <!-- Custom styles for this template-->
     <link href="/MotorBlockchain/src/app/pages/crear-transaccion/sb-admin-2.css" rel="stylesheet">
 
     <link href="/MotorBlockchain/src/app/pages/crear-transaccion/sb-admin-2.min.css" rel="stylesheet">
-    
+
 
 </head>
 
@@ -27,7 +27,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-      
+
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -37,21 +37,21 @@
             <div id="content">
 
 <!------------------------------------------------------------------NAVBAR-------------------------------------------------------------------------------------- -->
-                
+
 <!--------------------------------------------------------------CONTENIDO--------------------------------------------------------------------------------------------->
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    
-                    
+
+
                     <div>
                         <div class="container">
                             <h1 style="margin-top: 20px;">Crear registro</h1>
                             <p style="margin-top: 20px;">Registrar informacion sobre un vehiculo</p>
-                        
+
                             <br>
-                        
+
                             <div class="form-group">
                                 <label for="fromAddress">Vehiculo</label>
                                 <input type="text" class="form-control" id="fromAddress" aria-describedby="fromAddressHelp" [(ngModel)]="nuevaTransaccion.vehiculo">
@@ -59,15 +59,15 @@
                                     Matricula del vehiculo.
                                 </small>
                               </div>
-                        
+
                               <div class="form-group">
                                 <label for="toAddress">Taller</label>
                                 <input type="text" class="form-control" id="toAddress" aria-describedby="toAddressHelp" placeholder="Taller Prueba" [(ngModel)]="nuevaTransaccion.taller" disabled>
                                 <small id="toAddressHelp" class="form-text text-muted">
-                                    Waller del taller que valida el registro. Al tener que iniciar sesion con su cuenta no se puede cambiar. 
+                                    Waller del taller que valida el registro. Al tener que iniciar sesion con su cuenta no se puede cambiar.
                                 </small>
                               </div>
-                        
+
                               <div class="form-group">
                                 <label for="amount">Tipo Consulta</label>
                                 <input type="text" class="form-control" id="amount" aria-describedby="amountHelp" [(ngModel)]="nuevaTransaccion.tipoConsulta">
@@ -75,7 +75,7 @@
                                     Tipo de consulta del vehiculo.
                                 </small>
                               </div>
-                        
+
                             <div class="form-group">
                                 <label for="amount">Detalles</label>
                                 <input type="text" class="form-control" id="amount" aria-describedby="amountHelp" [(ngModel)]="nuevaTransaccion.detalles">
@@ -83,31 +83,41 @@
                                     Breve descripcion de la consulta.
                                 </small>
                               </div>
-                        
+
+                              <div class="form-group">
+                                <label for="amount">Marca</label>
+                                <select class="form-control" id="amount" aria-describedby="amountHelp" [(ngModel)]="nuevaTransaccion.marca">
+                                  <option [value]="item" *ngFor="let item of lista">{{item}}</option>
+                                </select>
+                                <small id="amountHelp" class="form-text text-muted">
+                                    Elige la marca
+                                </small>
+                              </div>
+
                               <br>
                               <style>
                                   .btn-a
                                   {
                                     background-color: black;
                                     color:aliceblue;
-                                    
+
                                   }
-                                  
+
                               </style>
                               <div class="b">
                                 <button (click)="crearTransaccion()" type="submit"  class="btn-a" >Crear registro del vehiculo</button>
                               </div>
-                              
-                        
+
+
                         </div>
-                    </div>                          
+                    </div>
                 </div>
-                <!-- /.container-fluid -->               
+                <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
 <!------------------------------------------------------------------FOOTER------------------------------------------------------------------------------------------------->
             <!-- Footer -->
-            
+
             <!-- End of Footer -->
         </div>
         <!-- End of Content Wrapper -->
@@ -115,10 +125,10 @@
     </div>
     <!-- End of Page Wrapper -->
 
-   
-    
 
-   
+
+
+
 
 </body>
 

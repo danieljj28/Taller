@@ -1,11 +1,12 @@
 const SHA256 = require("crypto-js/sha256");
 
 export class Transaccion {
-    constructor(vehiculo, taller, tipoConsulta, detalles){
+    constructor(vehiculo, taller, tipoConsulta, detalles, motor){
         this.vehiculo = vehiculo;
         this.taller = taller;
         this.tipoConsulta = tipoConsulta;
         this.detalles = detalles;
+        this.marca = motor;
     }
 }
 
@@ -98,7 +99,7 @@ export class BlockchainVehiculos {
     }
     return transaccionescoche;
   }
-  
+
 }
 
 /*
