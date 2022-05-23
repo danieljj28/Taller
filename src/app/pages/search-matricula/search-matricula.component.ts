@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BlockchainService } from 'src/app/services/blockchain.service';
 import  {Router}  from '@angular/router';
 import { Globales } from "src/app/components/globales";
+import { TablaTransaccionesMatriculaComponent } from 'src/app/components/tabla-transacciones-matricula/tabla-transacciones-matricula.component';
 
 @Component({
   selector: 'app-search-matricula',
@@ -13,14 +14,12 @@ export class SearchMatriculaComponent implements OnInit {
   public transaccionescoche:any;
   g:Globales=new Globales;
   dato = "si";
-
-  constructor(private blockchainservice:BlockchainService,private router: Router) { 
+  s:TablaTransaccionesMatriculaComponent = new TablaTransaccionesMatriculaComponent;
+  constructor(private blockchainservice:BlockchainService,private router: Router) {
   }
-  
 
-  
-  
- 
+
+
   private redirectUser():void {
     this.router.navigate(['/login']);
   }
@@ -28,7 +27,7 @@ export class SearchMatriculaComponent implements OnInit {
     this.router.navigate(['/searchMatricula']);
   }
   public logeadoOno(){
-    
+
     if(this.dato!=localStorage.getItem("loggeado"))
     {
       this.redirectUser();
@@ -44,6 +43,7 @@ export class SearchMatriculaComponent implements OnInit {
 
   obtenerTransaccionesCoche(){
     this.transaccionescoche = this.blockchainservice.obtenerTransaccionesVehiculo((document.getElementById("search") as HTMLInputElement).value);
+    this.s.mostrarBotton;
   }
 
 }

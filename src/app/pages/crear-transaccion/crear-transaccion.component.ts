@@ -15,6 +15,8 @@ import { Transaccion } from 'src/assets/blockchain/blockchain';
 })
 export class CrearTransaccionComponent implements OnInit {
 
+  lista:string[]=["OPEL","AUDI","BMW", "MERCEDES"];
+
   public nuevaTransaccion:any;
   verSeleccion: string = '';
   opcionSeleccionado: string  = '0';
@@ -22,7 +24,6 @@ export class CrearTransaccionComponent implements OnInit {
   clave = localStorage.getItem("clavePrimaria")+"";
 
 
-   lista : any[]=["audi","opel","seat", "bmw"];
 
   g:Globales=new Globales;
 

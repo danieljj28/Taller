@@ -11,6 +11,7 @@
         <th scope="col">Detalles</th>
         <th scope="col">Fecha</th>
         <th scope="col">Hash bloque</th>
+        <th scope="col">Marca</th>
       </tr>
     </thead>
     <tbody>
@@ -41,6 +42,44 @@
             {{tx.hashBloque}}
 
         </td>
+        <td class="text-truncate" style="max-width: 100px;">
+
+          {{tx.marca}}
+
+      </td>
       </tr>
     </tbody>
   </table>
+
+  <div style="display:none ;" class="container">
+    <div class="row">
+      <div id="htmlData">
+        <h2>Lista de videojuegos en stock</h2>
+        <table class="table table-bordered mt-4">
+          <tr class="table-primary">
+            <th scope="col">#</th>
+            <th scope="col">Taller</th>
+            <th scope="col">Tipo Reparacion</th>
+            <th scope="col">Detalles</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Hash bloque</th>
+            <th scope="col">Marca</th>
+          </tr>
+          <tr *ngFor="let tx of transacciones;  index as index">
+            <td class="text-truncate" style="max-width: 100px;">{{index}}</td>
+            <td class="text-truncate" style="max-width: 80px;">{{tx.taller}}</td>
+            <td class="text-truncate" style="max-width: 100px;">{{tx.tipoConsulta}}</td>
+            <td class="text-truncate" style="max-width: 100px;">{{tx.detalles}}</td>
+            <td class="text-truncate" style="max-width: 100px;">{{tx.fecha}}</td>
+            <td class="text-truncate" style="max-width: 100px;">{{tx.hashBloque}}</td>
+            <td class="text-truncate" style="max-width: 100px;">{{tx.marca}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <div style="display: none;">
+    <button id="button" class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Download PDF</button>
+  </div>

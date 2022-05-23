@@ -10,31 +10,37 @@
         <th scope="col">Taller</th>
         <th scope="col">Tipo Reparacion</th>
         <th scope="col">Detalles</th>
+        <th scope="col">Marca</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let tx of transacciones; index as index">
         <td>{{index}}</td>
         <td class="text-truncate" style="max-width: 100px;">
-  
+
           {{tx.vehiculo}}
-          
+
         </td>
         <td class="text-truncate" style="max-width: 100px;">
-  
+
             {{tx.taller}}
-            
+
         </td>
         <td class="text-truncate" style="max-width: 100px;">
-  
+
             {{tx.tipoConsulta}}
-            
+
         </td>
         <td class="text-truncate" style="max-width: 100px;">
-  
+
             {{tx.detalles}}
-            
+
         </td>
+        <td class="text-truncate" style="max-width: 100px;">
+
+          {{tx.marca}}
+
+      </td>
       </tr>
     </tbody>
   </table>
