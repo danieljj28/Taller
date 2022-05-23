@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import { data } from 'jquery';
+import { DISPLAY } from 'html2canvas/dist/types/css/property-descriptors/display';
 
 @Component({
   selector: 'app-tabla-transacciones-matricula',
@@ -12,11 +12,7 @@ export class TablaTransaccionesMatriculaComponent implements OnInit {
   @Input() public transacciones:any;
 
 
-  mostrarBotton(){
-    const botton : any = document.getElementById("button");
-    botton.style.display = "block";
-  }
-  downloadPDF() {
+  /*public downloadPDF() : void{
     // Extraemos el
 
     const DATA: any = document.getElementById('htmlData');
@@ -43,9 +39,38 @@ export class TablaTransaccionesMatriculaComponent implements OnInit {
     }).then((docResult) => {
       docResult.save(`${new Date().toISOString()}_tutorial.pdf`);
     });
-  }
+  }*/
 
-  constructor() { }
+
+  constructor() {
+    this.downloadPDF();
+  }
+  downloadPDF() {
+    // Extraemos el
+
+    let DATA : any = document.getElementById('htmlData');
+    DATA.style.display = "block";
+    const doc = new jsPDF('p', 'pt', 'a4');
+    const options = {
+      background: 'white',
+      scale: 3
+    };
+    html2canvas(DATA, options).then((canvas) => {
+
+      const img = canvas.toDataURL('image/PNG');
+
+      // Add image Canvas to PDF
+      const bufferX = 15;
+      const bufferY = 15;
+      const imgProps = (doc as any).getImageProperties(img);
+      const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      doc.addImage(img, 'PNG', bufferX, bufferY, pdfWidth, pdfHeight, undefined, 'FAST');
+      return doc;
+    }).then((docResult) => {
+      docResult.save(`${new Date().toISOString()}_tutorial.pdf`);
+    });
+  }
 
   ngOnInit(): void {
   }

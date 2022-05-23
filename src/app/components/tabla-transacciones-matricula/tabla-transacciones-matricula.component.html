@@ -49,13 +49,16 @@
       </td>
       </tr>
     </tbody>
+    <div style="width:500px ;">
+      <button  class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Download PDF</button>
+    </div>
   </table>
 
-  <div style="display:none ;" class="container">
-    <div class="row">
-      <div id="htmlData">
-        <h2>Lista de videojuegos en stock</h2>
-        <table class="table table-bordered mt-4">
+  <div id="htmlData" class="container">
+    <div style="display: none;" class="row">
+      <div>
+        <h2>Lista de Registros</h2>
+        <table  class="table table-bordered mt-4">
           <tr class="table-primary">
             <th scope="col">#</th>
             <th scope="col">Taller</th>
@@ -66,13 +69,13 @@
             <th scope="col">Marca</th>
           </tr>
           <tr *ngFor="let tx of transacciones;  index as index">
-            <td class="text-truncate" style="max-width: 100px;">{{index}}</td>
-            <td class="text-truncate" style="max-width: 80px;">{{tx.taller}}</td>
-            <td class="text-truncate" style="max-width: 100px;">{{tx.tipoConsulta}}</td>
-            <td class="text-truncate" style="max-width: 100px;">{{tx.detalles}}</td>
-            <td class="text-truncate" style="max-width: 100px;">{{tx.fecha}}</td>
-            <td class="text-truncate" style="max-width: 100px;">{{tx.hashBloque}}</td>
-            <td class="text-truncate" style="max-width: 100px;">{{tx.marca}}</td>
+            <th class="text-truncate" style="max-width: 100px;">{{index}}</th>
+            <th class="text-truncate" style="max-width: 80px;">{{tx.taller}}</th>
+            <th class="text-truncate" style="max-width: 100px;">{{tx.tipoConsulta}}</th>
+            <th class="text-truncate" style="max-width: 100px;">{{tx.detalles}}</th>
+            <th class="text-truncate" style="max-width: 100px;">{{tx.fecha}}</th>
+            <th class="text-truncate" style="max-width: 100px;">{{tx.hashBloque}}</th>
+            <th class="text-truncate" style="max-width: 100px;">{{tx.marca}}</th>
           </tr>
         </table>
       </div>
@@ -80,6 +83,4 @@
   </div>
 
 
-  <div id="button" style="display: none;">
-    <button  class="btn col col-lg-4 btn-danger btn-block ml-4" (click)="downloadPDF()">Download PDF</button>
-  </div>
+

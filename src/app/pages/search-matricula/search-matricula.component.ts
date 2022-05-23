@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { BlockchainService } from 'src/app/services/blockchain.service';
 import  {Router}  from '@angular/router';
 import { Globales } from "src/app/components/globales";
-import { TablaTransaccionesMatriculaComponent } from 'src/app/components/tabla-transacciones-matricula/tabla-transacciones-matricula.component';
 
 @Component({
   selector: 'app-search-matricula',
@@ -14,7 +13,6 @@ export class SearchMatriculaComponent implements OnInit {
   public transaccionescoche:any;
   g:Globales=new Globales;
   dato = "si";
-  s:TablaTransaccionesMatriculaComponent = new TablaTransaccionesMatriculaComponent;
   constructor(private blockchainservice:BlockchainService,private router: Router) {
   }
 
