@@ -54,28 +54,28 @@
     </div>
   </table>
 
-  <div id="htmlData" class="container">
-    <div style="display: none;" class="row">
-      <div>
-        <h2>Lista de Registros</h2>
-        <table  class="table table-bordered mt-4">
+  <div class="container">
+    <div class="row">
+      <div style="display: none;" id="htmlData">
+        <h2>Lista de registros</h2>
+        <table class="table table-bordered mt-4">
           <tr class="table-primary">
-            <th scope="col">#</th>
-            <th scope="col">Taller</th>
-            <th scope="col">Tipo Reparacion</th>
-            <th scope="col">Detalles</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Hash bloque</th>
-            <th scope="col">Marca</th>
+            <th>#</th>
+            <th>taller</th>
+            <th>tipoConsulta</th>
+            <th>detalles</th>
+            <th>fecha</th>
+            <th>hasbloque</th>
+            <th>marca</th>
           </tr>
-          <tr *ngFor="let tx of transacciones;  index as index">
-            <th class="text-truncate" style="max-width: 100px;">{{index}}</th>
-            <th class="text-truncate" style="max-width: 80px;">{{tx.taller}}</th>
-            <th class="text-truncate" style="max-width: 100px;">{{tx.tipoConsulta}}</th>
-            <th class="text-truncate" style="max-width: 100px;">{{tx.detalles}}</th>
-            <th class="text-truncate" style="max-width: 100px;">{{tx.fecha}}</th>
-            <th class="text-truncate" style="max-width: 100px;">{{tx.hashBloque}}</th>
-            <th class="text-truncate" style="max-width: 100px;">{{tx.marca}}</th>
+          <tr *ngFor="let tx of transacciones; index as index">
+            <td>{{index}}</td>
+            <td class="text-truncate" style="max-width: 50px;">{{tx.taller}}</td>
+            <td>{{tx.tipoConsulta}}</td>
+            <td>{{tx.detalles}}</td>
+            <td>{{tx.fecha}}</td>
+            <td class="text-truncate" style="max-width: 50px;">{{tx.hashBloque}}</td>
+            <td>{{tx.marca}}</td>
           </tr>
         </table>
       </div>
