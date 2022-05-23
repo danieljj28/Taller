@@ -63,6 +63,7 @@ export class CrearTransaccionComponent implements OnInit {
     {
       this.blockchainService.anyadirTransaccion(this.nuevaTransaccion);
       this.nuevaTransaccion = new Transaccion();
+      alert("Transaccion creada");
     }
     else
     {
