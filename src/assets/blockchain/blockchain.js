@@ -94,6 +94,7 @@ export class BlockchainVehiculos {
           mat.hashBloque = bloqueActual.hash;
           console.log(mat);
           transaccionescoche.push(trans[j]);
+          
         }
       }
     }

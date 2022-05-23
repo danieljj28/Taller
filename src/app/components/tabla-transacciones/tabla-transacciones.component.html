@@ -1,6 +1,6 @@
 <p *ngIf="transacciones === 'Bloque Inicial de la Blockchain, necesario insertarlo manualmente.'">Bloque Genesis. Generado manualmente</p>
 
-<p *ngIf="transacciones.length === 0">Este bloque no tiene transacciones</p>
+<p *ngIf="transacciones.length === 0">Este bloque no tiene registros</p>
 
 <table class="table table-hover table-striped" *ngIf="transacciones.length > 0 && transacciones !== 'Bloque Inicial de la Blockchain, necesario insertarlo manualmente.'">
     <thead>

@@ -42,8 +42,9 @@ export class SearchMatriculaComponent implements OnInit {
   }
 
   obtenerTransaccionesCoche(){
-    this.transaccionescoche = this.blockchainservice.obtenerTransaccionesVehiculo((document.getElementById("search") as HTMLInputElement).value);
     this.s.mostrarBotton;
+    this.transaccionescoche = this.blockchainservice.obtenerTransaccionesVehiculo((document.getElementById("search") as HTMLInputElement).value);
+
   }
 
 }
