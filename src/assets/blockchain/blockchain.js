@@ -32,14 +32,29 @@ export class Bloque {
 }
 
 export class BlockchainVehiculos {
-  constructor() {
+
+
+constructor() {
     this.blockchain = [this.bloqueGenesis()];
+    this.blockchain.push(this.bloque1());
+    this.blockchain.push(this.bloque2());
     this.transaccionesPendientes = [];
   }
 
   bloqueGenesis() {
-    return new Bloque("01/01/2020", "Bloque Inicial de la Blockchain, necesario insertarlo manualmente.", "0");
+    return new Bloque("01/1/2022 00:00:00", "Bloque Inicial de la Blockchain, necesario insertarlo manualmente.", "0");
   }
+
+  bloque1(){
+    const hant = this.obtenerUltimoBloque();
+    return new Bloque("18/5/2020 12:38:27", [new Transaccion("1111BBB", "04a59434b3711dbe7c6bc006ac27a13945ba418cc6534e4b6ba1f5b4acd723155a3376cf39e18e7f4ba3ae7cad43eee0db9b66cbd02ab46005ab99697097476daa", "Motor", "Motor averiado"), new Transaccion("9999QWS", "04a59434b3711dbe7c6bc006ac27a13945ba418cc6534e4b6ba1f5b4acd723155a3376cf39e18e7f4ba3ae7cad43eee0db9b66cbd02ab46005ab99697097476daa", "Aceite", "Cambio aceite"), new Transaccion("4567PLH", "04bdfb6fa2a447ba639402038d219c38fc5d995189608b2cdf90a558f74e373ff9ef01d69ee1dbf0b2d0f524743f1db44edc9d842d84708fe35a5e5ddfdad54277", "Motor", "Limpieza motor"), new Transaccion("9999QWS", "04bdfb6fa2a447ba639402038d219c38fc5d995189608b2cdf90a558f74e373ff9ef01d69ee1dbf0b2d0f524743f1db44edc9d842d84708fe35a5e5ddfdad54277", "Motor", "Sobrecalentamiento")], hant.hash);
+  }
+
+  bloque2(){
+    const hant = this.obtenerUltimoBloque();
+    return new Bloque("23/5/2020 19:55:36", [new Transaccion("0756TRD", "0454395cea19fc46d99fd257beb045df6f4a99154a3e3c687ab1358de5b0cf1ccd53ccbc55a948a364fc4a01e8c88494818c80c50252949f0664ae36a8078d2e20", "Carburante", "Carburante equivocado"), new Transaccion("9999QWS", "04a59434b3711dbe7c6bc006ac27a13945ba418cc6534e4b6ba1f5b4acd723155a3376cf39e18e7f4ba3ae7cad43eee0db9b66cbd02ab46005ab99697097476daa", "Motor", "Motor averiado"), new Transaccion("4567PLH", "0454395cea19fc46d99fd257beb045df6f4a99154a3e3c687ab1358de5b0cf1ccd53ccbc55a948a364fc4a01e8c88494818c80c50252949f0664ae36a8078d2e20", "Asientos", "Cambio de asientos"), new Transaccion("1111BBB", "0454395cea19fc46d99fd257beb045df6f4a99154a3e3c687ab1358de5b0cf1ccd53ccbc55a948a364fc4a01e8c88494818c80c50252949f0664ae36a8078d2e20", "Motor", "Cambio motor")], hant.hash);
+  }
+
 
   obtenerUltimoBloque() {
     return this.blockchain[this.blockchain.length - 1];
@@ -94,7 +109,7 @@ export class BlockchainVehiculos {
           mat.hashBloque = bloqueActual.hash;
           console.log(mat);
           transaccionescoche.push(trans[j]);
-          
+
         }
       }
     }
